@@ -16,7 +16,7 @@ vector<_Tp> convertMat2Vector(const Mat &mat)
 
 /****************** vector转Mat *********************/
 template <typename _Tp>
-cv::Mat convertVector2Mat(vector<_Tp> v, int channels, int rows)
+cv::Mat convertVector2Mat(std::vector<_Tp> v, int channels, int rows)
 {
     cv::Mat mat = cv::Mat(v);                           //将vector变成单列的mat
     cv::Mat dest = mat.reshape(channels, rows).clone(); //PS：必须clone()一份，否则返回出错

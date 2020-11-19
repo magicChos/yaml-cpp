@@ -23,6 +23,9 @@ cv::Mat convertVector2Mat(std::vector<_Tp> v, int channels, int rows)
     return dest;
 }
 
+
+
+
 int main(int argc, char **argv)
 {
     YAML::Node config;
@@ -57,7 +60,7 @@ int main(int argc, char **argv)
     std::cout << "-----------------------------------------" << std::endl;
     std::cout << distCoeffMat << std::endl;
 
-    cv::Mat camera_mat = convertVector2Mat<float>(cameraMat , 1 , 3);
+    cv::Mat camera_mat = convertVector2Mat<float>(cameraMat, 1, 3);
     std::cout << camera_mat << std::endl;
 
     return 1;

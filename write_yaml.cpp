@@ -1,22 +1,30 @@
+/************************************************************************************************
+@filename    :write_yaml.cpp
+@brief       :测试写入yaml封装类
+@time        :2021/01/01 17:47:54
+@author      :hscoder
+@versions    :1.0
+@email       :hscoder@163.com
+@usage       :
+***********************************************************************************************/
+
 #include <iostream>
-#include <yaml-cpp/yaml.h>
 #include <fstream>
 #include <vector>
+#include <opencv2/opencv.hpp>
+#include <memory>
+#include "writeyaml.h"
 
-using namespace std;
 
 int main(int argc, char **argv)
 {
-    YAML::Node config;
-    config["CameraMat"]["rows"] = 3;
-    config["CameraMat"]["cols"] = 3;
-    config["CameraMat"]["dt"] = 'd';
-    // std::vector<float> vec=  "[-4.7414625250654539e-03, 8.5735696382268611e-01, -2.6207096090810162e-03, -1.0303374250360127e-02, -2.8458739199082417e+00]";
-    config["CameraMat"]["data"] = "[-4.7414625250654539e-03, 8.5735696382268611e-01, -2.6207096090810162e-03, -1.0303374250360127e-02, -2.8458739199082417e+00]";
+    std::shared_ptr<YamlWriter> yamlwriter = std::make_shared<YamlWriter>("test.yaml");
+    const std::string key = "name";
+    int val = 10;
+    yamlwriter->write<int>(key , val);
 
-    ofstream fout("testconfig.xml");
-    fout << config;
-    fout.close();
+    cv::Mat cameraMatrix = (cv::Mat_<double>(3, 3) << 1000, 0, 320, 0, 1000, 240, 0, 0, 1);
+    yamlwriter->write<cv::Mat>("cameraMatrix" , cameraMatrix);
 
     return 1;
 }

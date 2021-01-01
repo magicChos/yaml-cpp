@@ -71,7 +71,7 @@ int main(int argc, char **argv)
 
     std::cout << "distCoeff: " << distCoeff;
 
-    std::string imageName = "/home/han/data/project/yaml-cpp/color_img/66.jpg";
+    std::string imageName = "/home/han/data/project/yaml-cpp/image/66.jpg";
     cv::Mat img = cv::imread(imageName);
     if (!img.data)
     {

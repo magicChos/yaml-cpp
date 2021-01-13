@@ -11,6 +11,7 @@
 #include "param_handler.h"
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <open3d/Open3D.h>
 
 template <typename _Tp>
 cv::Mat convertVector2Mat(std::vector<_Tp> v, int channels, int rows)
@@ -22,7 +23,7 @@ cv::Mat convertVector2Mat(std::vector<_Tp> v, int channels, int rows)
 
 int main(int argc, char **argv)
 {
-    std::string yaml_file = "/home/han/data/project/yaml-cpp/test.yaml";
+    std::string yaml_file = "/home/han/data/project/yaml-cpp/9-27-result-test.yaml";
     ParamHandler paramHandler(yaml_file);
     if (!paramHandler.FileOpenedSuccessfully())
     {
@@ -30,7 +31,7 @@ int main(int argc, char **argv)
     }
 
     std::vector<float> cameraMat;
-    paramHandler.GetValue<std::vector<float>>("cameraMatrix", "data", cameraMat);
+    paramHandler.GetValue<std::vector<float>>("CameraMat", "data", cameraMat);
     for (auto v : cameraMat)
     {
         std::cout << v << std::endl;

@@ -36,11 +36,12 @@ include_directories( /usr/local/include ${OpenCV_INCLUDE_DIRS} include)
 
 add_executable(write_yaml write_yaml.cpp )
 add_executable(read_yaml read_yaml.cpp ${LIB_SRCS})
+add_executable(read_yaml_cv test_read_cv_yaml.cpp ${LIB_SRCS})
 
 # target_link_libraries(yaml_test PUBLIC ${YAML_CPP_LIBRARIES})
 # target_link_libraries(read_calibration PUBLIC ${YAML_CPP_LIBRARIES} ${OpenCV_LIBS})
 # target_link_libraries(generateCarLine PUBLIC ${YAML_CPP_LIBRARIES} ${OpenCV_LIBS})
 target_link_libraries(write_yaml PUBLIC ${YAML_CPP_LIBRARIES} ${OpenCV_LIBS} utily )
 target_link_libraries(read_yaml PUBLIC ${YAML_CPP_LIBRARIES} ${OpenCV_LIBS})
-
+target_link_libraries(read_yaml_cv PUBLIC  ${OpenCV_LIBS} ${YAML_CPP_LIBRARIES} ${OpenCV_LIBS} utily )
 

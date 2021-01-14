@@ -8,11 +8,12 @@ class YamlReader
 public:
     YamlReader() = delete;
     YamlReader(const std::string &yaml_file);
-    ~YamlReader(){}
+    ~YamlReader();
 
-    cv::Mat getNodeMatrix(const std::string node_name);
+    void getNodeMatrix(const std::string node_name , cv::Mat &mat_val);
 
 
 private:
     cv::FileStorage storage_;
+    
 };

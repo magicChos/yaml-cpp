@@ -17,7 +17,8 @@ int main(int argc, char **argv)
     std::string yaml_file = "/home/han/data/project/yaml-cpp/camera_param.yaml";
 
     std::shared_ptr<YamlReader> yaml_obj = std::make_shared<YamlReader>(yaml_file);
-    cv::Mat camera_matrix = yaml_obj->getNodeMatrix("camera_matrix");
-    std::cout << camera_matrix << std::endl;
+    cv::Mat camera_matrix;
+    yaml_obj->getNodeMatrix("camera_matrix", camera_matrix);
+
     return 1;
 }

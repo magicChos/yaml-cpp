@@ -32,9 +32,9 @@ message(${LIB_SRCS})
 add_library(utily ${LIB_SRCS})
 
 find_package(yaml-cpp REQUIRED)
-# set(YAML_CPP_LIBRARIES /usr/local/lib/libyaml-cpp.a)
+set(YAML_CPP_LIBRARIES /usr/local/lib/libyaml-cpp.a)
 
-set(YAML_CPP_LIBRARIES  yaml-cpp)
+# set(YAML_CPP_LIBRARIES  yaml-cpp)
 
 find_package(OpenCV 3  REQUIRED)
 include_directories( /usr/local/include ${OpenCV_INCLUDE_DIRS} include)
